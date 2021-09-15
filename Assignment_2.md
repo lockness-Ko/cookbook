@@ -2,12 +2,20 @@
 
 ## Shadow - Advanced Forensics
 
+Personal Difficulty: 4/5
+
+Personal Rating: ★★★★★
+
 ### Overview
 
 ### 
 
 
 ## PHP Circus - Advanced Web Explotation
+
+Personal Difficulty: 3/5
+
+Personal Rating: ★★★★☆
 
 ### TL;DR
 
@@ -49,7 +57,7 @@ In the soure code, it checks if the md5 hash of the password is equal to "0". PH
 
 ## ABC Company - Intermediate Forensics
 
-Personal Difficulty: Easy
+Personal Difficulty: 1/5
 
 Personal Rating: ★★★☆☆
 
