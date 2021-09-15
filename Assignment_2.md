@@ -67,4 +67,9 @@ Use wireshark to analyse the pcapng file, look at the telnet tcp stream and show
 
 ### What did I do?
  - In the challenge we are given a pcapng file to analyse and find the hidden flag
- - 
+ - pcapng files are packet capture files exported from wireshark or another packet capture software
+ - We can look through the packets manually to find each part of the packets, but wireshark can automatically display an entire packet conversation, or stream
+ - The main packet stream we can see is a telnet stream, unencrypted, unencoded text that we can look at
+ - If we right click on the packet, hover over "Follow" and click "TCP Stream" we are able to view the flag, but it is very messy and annoying to copy
+![](img/unknown.png)
+ - What we can do is only view what the server sends back to the client
