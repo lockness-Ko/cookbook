@@ -71,5 +71,44 @@ Use wireshark to analyse the pcapng file, look at the telnet tcp stream and show
  - We can look through the packets manually to find each part of the packets, but wireshark can automatically display an entire packet conversation, or stream
  - The main packet stream we can see is a telnet stream, unencrypted, unencoded text that we can look at
  - If we right click on the packet, hover over "Follow" and click "TCP Stream" we are able to view the flag, but it is very messy and annoying to copy
+
 ![](img/unknown.png)
+
  - What we can do is only view what the server sends back to the client
+ - Once we do that, we will see the flag being put into a file called `flag1.txt` so we can assume it is the flag
+```bash
+                _                  _       _ _        _     _      ____  
+ _ __ ___   ___| |_ __ _ ___ _ __ | | ___ (_) |_ __ _| |__ | | ___|___ \ 
+| '_ ` _ \ / _ \ __/ _` / __| '_ \| |/ _ \| | __/ _` | '_ \| |/ _ \ __) |
+| | | | | |  __/ || (_| \__ \ |_) | | (_) | | || (_| | |_) | |  __// __/ 
+|_| |_| |_|\___|\__\__,_|___/ .__/|_|\___/|_|\__\__,_|_.__/|_|\___|_____|
+                            |_|                                          
+
+
+Warning: Never expose this VM to an untrusted network!
+
+Contact: msfdev[at]metasploit.com
+
+Login with msfadmin/msfadmin to get started
+
+
+metasploitable login: msfadmin
+Password: 
+Last login: Sun Aug  8 01:46:51 EDT 2021 from 192.168.175.128 on pts/1
+Linux metasploitable 2.6.24-16-server #1 SMP Thu Apr 10 13:58:00 UTC 2008 i686
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+To access official Ubuntu documentation, please visit:
+http://help.ubuntu.com/
+No mail.
+msfadmin@metasploitable:~$ echo flag1{. .. .. .. .. .. .pecan{you_got. .. .0t-. ._the_First. .. .. .. .. .. .. .. .. .it_wow. .. .. ............wyou_g0t_it_...........oyou_g0t_it_...........wyou_g0t_it_..........._you_g0t_it_...........
+.msfadmin@metasploitable:~$ echo pecan{wow_you_g0t_it_. .}..............w_you_g0t_it} ..............0w_you_g0t_it}.............
+.msfadmin@metasploitable:~$ echo pecan{w0w_you_g0t_it} >> flag1.txt
+msfadmin@metasploitable:~$ exit
+```
