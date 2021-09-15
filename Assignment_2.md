@@ -50,6 +50,7 @@ In the soure code, it checks if the md5 hash of the password is equal to "0". PH
 ## ABC Company - Intermediate Forensics
 
 Personal Difficulty: Easy
+
 Personal Rating: ★★★☆☆
 
 ### TL;DR
@@ -57,4 +58,5 @@ Personal Rating: ★★★☆☆
 Use wireshark to analyse the pcapng file, look at the telnet tcp stream and show only the requests which will reveal the flag `pecan{w0w_you_g0t_it}`
 
 ### What did I do?
- - In the challenge we 
+ - In the challenge we are given a pcapng file to analyse and find the hidden flag
+ - 
