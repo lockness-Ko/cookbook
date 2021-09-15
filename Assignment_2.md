@@ -46,3 +46,15 @@ In the soure code, it checks if the md5 hash of the password is equal to "0". PH
  - If it equals "0" then it prints the flag, otherwise it will echo "Sorry that is incorrect"
  - I had already heard about the php magic hashes before but just for this writeup I looked up "php md5 hash 0" and it came up with [this](https://www.whitehatsec.com/blog/magic-hashes/) resource
  - It shows the hash that equals "0" and you will need to paste that into the password box to win!
+
+## ABC Company - Intermediate Forensics
+
+Personal Difficulty: Easy
+Personal Rating: ★★★☆☆
+
+### TL;DR
+
+Use wireshark to analyse the pcapng file, look at the telnet tcp stream and show only the requests which will reveal the flag `pecan{w0w_you_g0t_it}`
+
+### What did I do?
+ - In the challenge we 
