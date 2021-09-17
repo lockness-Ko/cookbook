@@ -143,3 +143,22 @@ Open the file in Windows Paint 3D, painstakingly write down the flag written on 
 ![](img/flag3d.png)
 
  - When you open it you can see the flag on the side of the pole
+
+## Redirection - Intermediate Web Exploitation
+
+Personal Difficulty: 2/5
+
+Personal Rating: ★★★★☆
+
+### TL;DR
+Use burp proxy to incercept the requests and copy down each character of the PHP files that it redirects you to
+
+### What did I do?
+ - We are given a page that says `Someone has given you directions to a flag with many dead ends involved, can you find your way to the flag?` and a button that says `Click here to begin`
+ - When we click it, the page takes a long time to load. Based of the name I guessed that it was doing a lot of redirections. The path at the end was also `/challenges/Redirection/%7D.php`, %7D is a URL encoded } character so we can assume that it is the end of a flag and the pages that it redirects us to 
+ - We can now open up burp suite and use FoxyProxy to redirect our traffic through burp
+ - Now that we have all our requests proxied through burp, we can click the button and observe the requests
+
+![](img/l0st.png)
+
+ - This reveals the flag `PeCan{R-U_l05t}`
