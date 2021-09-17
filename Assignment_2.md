@@ -125,3 +125,21 @@ msfadmin@metasploitable:~$ echo flag1{. .. .. .. .. .. .pecan{you_got. .. .0t-. 
 .msfadmin@metasploitable:~$ echo pecan{w0w_you_g0t_it} >> flag1.txt
 msfadmin@metasploitable:~$ exit
 ```
+
+## 3D Flag - Advanced Forensics
+
+Personal Difficulty: -13428650980923/5
+
+Personal Rating: ☆☆☆☆☆
+
+### TL;DR
+Open the file in Windows Paint 3D, painstakingly write down the flag written on the side of the pole, submit it.
+
+### What did I do?
+ - It gives us an STL file to find the flag in
+ - STL stands for Standard Triangle Language or Standard Tessellation Language. These files store a bunch of vectors which tell a 3D program how to interpret it.
+ - In windows by default we can double click the file to open it
+
+![](img/flag3d.png)
+
+ - When you open it you can see the flag on the side of the pole
