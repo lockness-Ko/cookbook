@@ -55,3 +55,41 @@ bandit14@bandit:~$ cat /etc/bandit_pass/bandit14
 
 ## Bandit15
 
+`The password for the next level can be retrieved by submitting the password of the current level to port 30000 on localhost.`
+
+### Commands used
+ - nc
+
+### Description
+
+The challenge description tells us that there is a service running on the current machine on port 30000. There are lots of tools we can use to interact with this network service including `telnet`, `nc` and `curl`. `telnet` and `nc` will work fine for this but I am going to show `nc` as it is more versatile than telnet.
+
+If we look at the man page for `nc` we can see the basic usage of it:
+
+```bash
+NAME
+       nc - TCP/IP swiss army knife
+
+SYNOPSIS
+       nc [-options] hostname port[s] [ports] ...
+       nc -l -p port [-options] [hostname] [port]
+```
+
+This shows us how we can connect to the service on port 30000:
+```bash
+nc localhost 30000
+```
+
+Once we are on, there is no response until we submit the password for bandit14:
+
+```bash
+bandit14@bandit:~$ nc localhost 30000
+4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
+Correct!
+BfMYroe26WYalil77FoDi9qh59eK5xNr
+```
+
+And we get the password for bandit15
+
+## Bandit16
+
