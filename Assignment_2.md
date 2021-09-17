@@ -7,9 +7,22 @@ Personal Difficulty: 4/5
 Personal Rating: ★★★★★
 
 ### TL;DR
+Use impacket/examples/secretsdump.py to dump the password hashes from the NTDS.dit and SYS files that were provided. Use hashcat and rockyou.txt to crack the NTLM hashes for pparker
 
 ### What did I do?
+ - I first saw the NTDS.dit file in the challenge and remembered to when I learned about Active Directory a while ago
+ - The NTDS.dit file is a database that stores information for all users in that domain INCLUDING the NTLM hashes for each user
+ - We can use impacket (a set of low level python classes for working with networking stuff) to dump the NTLM hashes from the NTDS.dit and SYS file we were provided with
 
+```bash
+sudo python3 /opt/impacket/examples/secretsdump.py -ntds ./ntds.dit -system ./SYS LOCAL -outputfile out.ntlm
+```
+ - Then we can use hashcat to crack the out.ntlm.ntds file that was dumped with impacket with the infamous rockyou.txt wordlist
+
+```bash
+hashcat -m 1000 -w 3 -a 0 --username pparker -o ./cracked.out --outfile-format=3 ./out.ntlm.ntds /usr/share/wordlists/rockyou.txt --potfile-path ./hashcat.pot
+```
+ - I don't think I saved the flag on the machine once I was done so I cannot show it here :/
 
 ## PHP Circus - Advanced Web Explotation
 
