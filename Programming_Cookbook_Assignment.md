@@ -192,3 +192,128 @@ namespace Program
 
 ### Description
 
+State pattern is recognized by methods that change their behaviour based on that methods parent class's state. State methods change the current state of a class based on that current state and an action. e.g.
+
+```cs
+if Door.IsOpen and Person.IsPushing
+  then
+    return The door is already open
+else if Door.IsClosed and Person.IsPushing
+  then
+    return The door is now open
+else if Door.IsClosed and Person.NotPushing
+  then
+    return The door is closed
+// And so on.
+```
+
+### Example
+
+```cs
+using System;
+
+namespace Program
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+
+            var context = new Context(new ConcreteStateA());
+
+            for (int i = 0; i < length; i++)
+            {    
+                context.DoContext();
+            }
+
+            Console.ReadKey();
+        }
+    }
+    public abstract class State
+    {
+        public abstract void SetContext(Context context);
+    }
+    public class ConcreteStateA : State
+    {
+        public override void SetContext(Context context)
+        {
+            context.State = new ConcreteStateB();
+        }
+    }
+    public class ConcreteStateB : State
+    {
+        public override void SetContext(Context context)
+        {
+            context.State = new ConcreteStateA();
+        }
+    }
+    public class Context
+    {
+        State state;
+
+        public Context(State state)
+        {
+            this.State = state;
+        }
+
+        public State State
+        {
+            get { return state; }
+            set
+            {
+                state = value;
+                Console.WriteLine("State: " + state.GetType().Name);
+            }
+        }
+        public void DoContext()
+        {
+            state.SetContext(this);
+        }
+    }
+}
+```
+
+## Composition (inheritance)
+
+### Description
+
+Composition allows a class to contain an object instance of another class. This implements better encapsulation than inheritance and is better because any change to the back-end class (class instance inside the class) generally does not interfere with the front-end class and cause it to break. For more information, refer to (this)[https://en.wikipedia.org/wiki/Inception]
+
+### Example 
+```cs
+using System;
+
+namespace Program
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            SecondClass cool_class = new SecondClass();
+
+            cool_class.MyMethod();
+        }
+    }
+    public class FirstClass
+    {
+        public string property { get; set; }
+
+        public void FirstMethod()
+        {
+            Console.WriteLine("Implementation!");
+        }
+    }
+
+    public class SecondClass
+    {
+        private FirstClass firstClass = new FirstClass();
+        public string ClassProperty { get; set; }
+
+        public void MyMethod()
+        {
+            Console.WriteLine("Yarr! I am the second class which is composed of the first class 🏴‍☠️🦜");
+            firstClass.FirstMethod();
+        }
+    }
+}
+```
