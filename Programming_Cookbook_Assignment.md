@@ -123,3 +123,72 @@ namespace Tutorial {
   }
 }
 ```
+
+## Factory Pattern
+
+### Description 
+
+The Factory Method pattern is widely used in any code. It's useful when you need to provide a lot of flexibility in your code. Factory methods are recognized by creation their methods that create objects from "concrete" classes (something that is not an abstract class).
+
+### Example
+```cs
+using System;
+using System.Collection.Generic;
+
+namespace Program
+{
+    class Program
+    {
+        static void Main()
+        {
+            List<Creator> creators = new List<Creator>();
+            creators.Add(new ConcreteCreatorA());
+            creators.Add(new ConcreteCreatorB());
+            foreach (Creator creator in creators)
+            {
+                Product product = creator.FactoryPattern();
+                Console.WriteLine("Created {0}", product.GetType().Name);
+            }
+            Console.ReadLine();
+        }
+    }
+
+    abstract class Product
+    {
+    }
+
+    class ConcreteProductA : Product
+    {
+    }
+
+    class ConcreteProductB : Product
+    {
+    }
+
+    abstract class Creator
+    {
+        public abstract Product FactoryPattern();
+    }
+
+    class ConcreteCreatorA : Creator
+    {
+        public override Product FactoryPattern()
+        {
+            return new ConcreteProductA();
+        }
+    }
+
+    class ConcreteCreatorB : Creator
+    {
+        public override Product FactoryPattern()
+        {
+            return new ConcreteProductB();
+        }
+    }
+}
+```
+
+## State Pattern
+
+### Description
+
