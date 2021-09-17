@@ -159,6 +159,6 @@ Use burp proxy to incercept the requests and copy down each character of the PHP
  - We can now open up burp suite and use FoxyProxy to redirect our traffic through burp
  - Now that we have all our requests proxied through burp, we can click the button and observe the requests
 
-![](img/l0st.png)
+![](img/l0st.PNG)
 
  - This reveals the flag `PeCan{R-U_l05t}`
