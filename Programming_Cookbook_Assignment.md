@@ -277,7 +277,7 @@ namespace Program
 
 ### Description
 
-Composition allows a class to contain an object instance of another class. This implements better encapsulation than inheritance and is better because any change to the back-end class (class instance inside the class) generally does not interfere with the front-end class and cause it to break. For more information, refer to (this)[https://en.wikipedia.org/wiki/Inception]
+Composition allows a class to contain an object instance of another class. This implements better encapsulation than inheritance and is better because any change to the back-end class (class instance inside the class) generally does not interfere with the front-end class and cause it to break. For more information, refer to [this](https://en.wikipedia.org/wiki/Inception)
 
 ### Example 
 ```cs
