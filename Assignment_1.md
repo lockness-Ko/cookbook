@@ -345,3 +345,20 @@ xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn
 
 `NOTE: if you have solved this level and see ‘Byebye!’ when trying to log into bandit18, this is related to the next level, bandit19`
 
+### Commands used
+ - ls
+ - diff
+ - cat
+
+### Description
+
+When we log in and type `ls` and see the files, there is a passwords.old and a passwords.new file. If we look at them with `cat` we see that they look the same. We can use `diff` to see the difference between 2 files:
+```bash
+bandit17@bandit:~$ diff passwords.new passwords.old
+42c42
+< kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
+---
+> w0Yfolrc5bwjS4qw5mq1nnQi6mF03bii
+```
+
+It will show the first file at the top and the 2nd file at the bottom, this shows us the password.
